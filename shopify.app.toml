@@ -2,7 +2,7 @@
 
 name = "reelkart-new"
 client_id = "8b45137628093f04ee947f94f32e8c76"
-application_url = "https://d731-103-80-34-34.ngrok-free.app"
+application_url = "https://76bb-103-80-34-34.ngrok-free.app"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://d731-103-80-34-34.ngrok-free.app/auth/callback",
-  "https://d731-103-80-34-34.ngrok-free.app/auth/shopify/callback",
-  "https://d731-103-80-34-34.ngrok-free.app/api/auth/callback"
+  "https://76bb-103-80-34-34.ngrok-free.app/auth/callback",
+  "https://76bb-103-80-34-34.ngrok-free.app/auth/shopify/callback",
+  "https://76bb-103-80-34-34.ngrok-free.app/api/auth/callback"
 ]
 
 [webhooks]

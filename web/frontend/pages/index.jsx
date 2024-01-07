@@ -19,7 +19,7 @@ export default function HomePage() {
   const { t } = useTranslation();
   return (
     <Page narrowWidth>
-      <TitleBar title={t("HomePage.title")} primaryAction={null} />
+      <TitleBar title={"Reelkart"} primaryAction={null} />
       <Layout>
         <Layout.Section>
           <Card sectioned>
@@ -32,7 +32,8 @@ export default function HomePage() {
               <Stack.Item fill>
                 <TextContainer spacing="loose">
                   <Text as="h2" variant="headingMd">
-                    {t("HomePage.heading")}
+                    {/* {t("HomePage.heading")} */}
+                    Reelkart
                   </Text>
                   <p>
                     <Trans
