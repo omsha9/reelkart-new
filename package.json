@@ -13,7 +13,14 @@
   },
   "dependencies": {
     "@shopify/app": "^3.53.0",
-    "@shopify/cli": "^3.53.0"
+    "@shopify/cli": "^3.53.0",
+    "chart.js": "^4.4.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-chartkick": "^0.5.3",
+    "react-charts": "^3.0.0-beta.57",
+    "react-circular-progressbar": "^2.1.0",
+    "react-google-charts": "^4.0.1",
+    "react-ui-loader": "^1.0.2"
   },
   "author": "omsha",
   "private": true,
