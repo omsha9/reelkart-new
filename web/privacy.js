@@ -83,4 +83,17 @@ export default {
       // }
     },
   },
+  ORDERS_CREATE: {
+    deliveryMethod: DeliveryMethod.Http,
+    callbackUrl: "https://webhook.site/14dd2442-b9cf-4e79-a7c7-27b7b601e6f0",
+    callback: async (topic, shop, body, webhookId) => {
+      const payload = JSON.parse(body);
+      console.log("orders create webhook working!!", payload)
+      // Payload has the following shape:
+      // {
+      //   "shop_id": 954889,
+      //   "shop_domain": "{shop}.myshopify.com"
+      // }
+    },
+  },
 };

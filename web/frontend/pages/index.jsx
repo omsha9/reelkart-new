@@ -8,11 +8,10 @@ import {
   Link,
   Text,
 } from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
+import { useAppBridge, Loading } from "@shopify/app-bridge-react";
 import { useTranslation, Trans } from "react-i18next";
-
+import { useEffect } from "react";
 import { trophyImage } from "../assets";
-
 import { ProductsCard } from "../components";
 import SideNavBar from "../components/SideNavBar";
 import Stats from "../components/Stats";
@@ -25,6 +24,20 @@ import VideoBar from "../components/VideoOrders";
 
 export default function HomePage() {
   const { t } = useTranslation();
+  const { subscribe } = useAppBridge();
+  const token = localStorage.getItem("shopify-access-token");
+
+  useEffect(function fetchState() {
+    if (!token) {
+      subscribe((e) => {
+        if (e.type === "APP::SESSION_TOKEN::RESPOND") {
+          console.log(`Setting token`);
+          localStorage.setItem("shopify-access-token", e.payload.sessionToken);
+        }
+      });
+    }
+  }, []);
+
   return (
     <div
       style={{
@@ -71,6 +84,8 @@ export default function HomePage() {
         </div>
       </div>
     </div>
+
+    
   );
 }
 
