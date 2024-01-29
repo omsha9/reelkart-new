@@ -182,8 +182,11 @@ const Placeholder = ({ label = "", height = "140vh", width = "12vw" }) => {
                   (e.target.style.textDecoration = "underline")
                 }
                 onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-              > 
-                My Product
+              > <Link to="/MyProduct" style={{
+                
+              }}
+              >My Product</Link>
+                
               </span>
             </div>
             </button>
