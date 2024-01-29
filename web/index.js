@@ -18,6 +18,11 @@ const STATIC_PATH =
     ? `${process.cwd()}/frontend/dist`
     : `${process.cwd()}/frontend/`;
 
+    // const session = await shopify.Utils.loadCurrentSession(req, res, true);
+
+  // Session is built by the OAuth process
+//  console.log("tesing the player", shopify.config.sessionStorage)
+
 const app = express();
 
 // Set up Shopify authentication and webhook handling
@@ -31,6 +36,8 @@ app.post(
   shopify.config.webhooks.path,
   shopify.processWebhooks({ webhookHandlers: PrivacyWebhookHandlers })
 );
+
+
 
 // If you are adding routes outside of the /api path, remember to
 // also add a proxy rule for them in web/frontend/vite.config.js
