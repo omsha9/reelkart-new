@@ -9,6 +9,7 @@ import {
   Text,
 } from "@shopify/polaris";
 import { useAppBridge, Loading } from "@shopify/app-bridge-react";
+import { getSessionToken } from "@shopify/app-bridge-utils";
 import { useTranslation, Trans } from "react-i18next";
 import { useEffect } from "react";
 import { trophyImage } from "../assets";
@@ -24,17 +25,19 @@ import VideoBar from "../components/VideoOrders";
 
 export default function HomePage() {
   const { t } = useTranslation();
-  const { subscribe } = useAppBridge();
+  // const { subscribe } = useAppBridge();
+  const app = useAppBridge();
   const token = localStorage.getItem("shopify-access-token");
+
+  const getToken = async () => {
+    const sessionToken = await getSessionToken(app);
+    console.log("session token is here", sessionToken);
+    localStorage.setItem("shopify-access-token", sessionToken);
+  };
 
   useEffect(function fetchState() {
     if (!token) {
-      subscribe((e) => {
-        if (e.type === "APP::SESSION_TOKEN::RESPOND") {
-          console.log(`Setting token`);
-          localStorage.setItem("shopify-access-token", e.payload.sessionToken);
-        }
-      });
+      getToken();
     }
   }, []);
 
@@ -46,14 +49,15 @@ export default function HomePage() {
         paddingLeft: "2px",
       }}
     >
-      <div style={{position:"fixed"}} >
-
-      <SideNavBar />
+      <div style={{ position: "fixed" }}>
+        <SideNavBar token={token}/>
       </div>
-      <div style={{
-            display: "flex",
-            marginLeft: "12vw"
-          }}>
+      <div
+        style={{
+          display: "flex",
+          marginLeft: "12vw",
+        }}
+      >
         <div
           style={{
             display: "",
@@ -70,109 +74,20 @@ export default function HomePage() {
           </h1>
           <Stats />
           <TopPages />
-          <TopVid/>
+          <TopVid />
           <Info />
         </div>
         <div
-          style={{
-            // display: "flex",
-          }}
+          style={
+            {
+              // display: "flex",
+            }
+          }
         >
           <Graphs />
-          <VideoBar/>
-          
+          <VideoBar />
         </div>
       </div>
     </div>
-
-    
   );
 }
-
-{
-  /*     
-    
-    // <Page narrowWidth>
-    //   <TitleBar title={"Reelkart"} primaryAction={null} />
-    //   <Layout>
-    //     <Layout.Section>
-    //       <Card sectioned>
-    //         <SideNavBar/>
-    //         <Stack
-    //           wrap={false}
-    //           spacing="extraTight"
-    //           distribution="trailing"
-    //           alignment="center"
-    //         >
-    //           <Stack.Item fill>
-    //             <TextContainer spacing="loose">
-    //               < as="h2" variant="headingMd">
-    //                 {/* {t("HomePage.heading")} */
-}
-//
-//
-{
-  /* //               <p>
-    //                 <Trans */
-}
-{
-  /* //                   i18nKey="HomePage.yourAppIsReadyToExplore"
-    //                   components={{ */
-}
-{
-  /* //                     PolarisLink: (
-    //                       <Link url="https://polaris.shopify.com/" external />
-    //                     ),
-    //                     AdminApiLink: (
-    //                       <Link */
-}
-{
-  /* //                         url="https://shopify.dev/api/admin-graphql"
-    //                         external
-    //                       />
-    //                     ),
-    //                     AppBridgeLink: (
-    //                       <Link */
-}
-{
-  /* //                         url="https://shopify.dev/apps/tools/app-bridge"
-    //                         external
-    //                       />
-    //                     ),
-    //                   }}
-    //                 />
-    //               </p> */
-}
-//              {/* <p>{t("HomePage.startPopulatingYourApp")}</p>*}
-//               <p>
-//                 <Trans
-//                   i18nKey="HomePage.learnMore"
-//                   components={{
-//                     ShopifyTutorialLink: (
-//                       <Link
-//                         url="https://shopify.dev/apps/getting-started/add-functionality"
-//                         external
-//                       />
-//                     ),
-//                   }}
-//                 />
-//               </p>
-//             </TextContainer>
-//           </Stack.Item>
-//           <Stack.Item>
-// <div style={{ padding: "0 20px" }}>
-//               <Image
-//                 source={trophyImage}
-//                 alt={t("HomePage.trophyAltText")}
-//                 width={120}
-//               />
-//             </div>
-//           </Stack.Item>
-//         </Stack>
-//       </Card>
-//     </Layout.Section>
-//     <Layout.Section>
-//       <ProductsCard />
-//     </Layout.Section>
-//   </Layout>
-// </Page> */}

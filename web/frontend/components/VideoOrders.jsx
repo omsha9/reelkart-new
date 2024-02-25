@@ -3,16 +3,12 @@ import { Box, Text } from "@shopify/polaris";
 import { LineBar } from "./LineBar";
 
 
-
-
-
 const VideoBar = () => {
   return (
     <div
       style={{
         borderRadius: "7%",
         marginLeft: "16px",
-        padding: "10px",
         width: "500px",
         height: "fit-content",
         border: "2px solid #E3E6E5",
@@ -60,7 +56,6 @@ const VideoBar = () => {
           <h1
             style={{
               fontSize: "x-large",
-                fontSize: "20px",
                 marginLeft:'20px',
                 fontWeight: "bold",
             

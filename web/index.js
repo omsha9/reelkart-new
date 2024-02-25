@@ -38,6 +38,18 @@ app.post(
 );
 
 
+// // Middleware to store access token
+// app.use((req, res, next) => {
+//   const accessToken = req.query.access_token; // Assuming the access token is provided as a query parameter during OAuth flow
+//   if (accessToken) {
+//     // Store the access token, you can use sessions, cookies, or a database for storage
+//     // res.locals.accessToken = accessToken;
+//     // @ts-ignore
+//     localStorage.setItem("Access Token New", accessToken)
+//   }
+//   next();
+// });
+
 
 // If you are adding routes outside of the /api path, remember to
 // also add a proxy rule for them in web/frontend/vite.config.js

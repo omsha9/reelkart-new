@@ -16,7 +16,6 @@ const Graphs = () => {
         width: "500px",
         height: "fit-content",
         border: "2px solid #E3E6E5",
-        padding: "10px",
         marginTop: "25px",
         margin: "50px",
         backgroundColor: "rgb(255,255,255)",
@@ -60,7 +59,7 @@ const Graphs = () => {
           <h1
             style={{
               fontSize: "x-large",
-                fontSize: "20px",
+                
                 marginLeft:'20px',
                 fontWeight: "bold",
             

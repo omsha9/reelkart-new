@@ -10,7 +10,6 @@ const Info = () => {
         width: "400px",
         height: "200px",
         border: "2px solid #E3E6E5",
-        padding: "10px",
         marginTop: "25px",
         margin: "50px",
         backgroundColor: "rgb(255,255,255)",
@@ -30,7 +29,6 @@ const Info = () => {
       <h1
         style={{
           fontSize: "x-large",
-          fontSize: "20px",
           marginLeft: "25px",
           fontWeight: "bold",
         }}
